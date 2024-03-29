@@ -77,3 +77,5 @@ function selectQuotients(arr, m, dirStr) {
   
   return res;
 }
+
+// or
