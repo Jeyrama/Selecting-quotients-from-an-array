@@ -79,3 +79,18 @@ function selectQuotients(arr, m, dirStr) {
 }
 
 // or
+
+function selectQuotients(arr, m, dirStr = null) {
+  let cmpSet = new Set()
+  let lst = []
+  for(let i = 0; i < arr.length - 1; i++){
+    for(let j = i + 1; j < arr.length; j++){
+      let [x, y] = [Math.min(arr[i], arr[j]), Math.max(arr[i], arr[j])]
+      if(y % x == 0 && y / x >= m && (!dirStr || y / x % 2 == {"even": 0, "odd": 1}[dirStr.toLowerCase``]) && !cmpSet.has(`${y / x}~${y}~${x}`)){
+        cmpSet.add(`${y / x}~${y}~${x}`)
+        lst.push([y / x, [y, x]])
+      }
+    }
+  }
+  return lst.sort((a, b) => a[0] - b[0] || a[1][0] - b[1][0])
+}
