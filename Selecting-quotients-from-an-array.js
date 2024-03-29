@@ -49,3 +49,6 @@ Assumptions:
   All integer values in the array, including m, will be >= 2.
   The strings will be exactly given as 'even' and 'odd' or 'Even' and 'Odd'.
 */
+
+
+// Solution
