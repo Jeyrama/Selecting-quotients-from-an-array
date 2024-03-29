@@ -52,3 +52,28 @@ Assumptions:
 
 
 // Solution
+
+function selectQuotients(arr, m, dirStr) {
+  let rem = dirStr && dirStr.toLowerCase() === 'odd' ? 1 : 0;
+  let seen = new Set();
+  let res = [];
+  let sort = arr.sort((a, b) => b - a);
+  
+  for (let i = 0; i < sort.length - 1; i++) {
+    for (let j = i + 1; j < sort.length; j++) {
+      let div = sort[i] / sort[j];
+
+      if (div >= m && div % 1 === 0 && (!dirStr || div % 2 === rem)) {
+        let key = sort[i] + '_' + sort[j];
+        
+        if (!seen.has(key)) {
+          res.push([div, [ sort[i], sort[j] ] ]);
+          seen.add(key);
+        }
+      }
+    }
+  }
+  res = res.sort((a, b) => a[0] - b[0] || a[1][0] - b[1][0]);;
+  
+  return res;
+}
